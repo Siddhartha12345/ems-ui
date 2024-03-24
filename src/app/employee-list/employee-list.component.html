@@ -10,12 +10,16 @@
     </div>
 </div><!-- End -->
 
-
 <div class="container">
     <div class="row text-center">
         <!--Employee card start-->
         <div *ngFor="let employee of employeeList" class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{employee.image}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <div class="bg-white rounded shadow-sm py-5 px-4">
+                <img src="{{employee.image}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <span *ngIf="employee.department != null; else unassigned" class="badge bg-success">ASSIGNED</span>
+                <ng-template #unassigned>
+                    <span class="badge bg-danger">UNASSIGNED</span>
+                </ng-template>
                 <h5 class="mb-0">{{employee.firstName}} {{employee.lastName}}</h5><span class="small text-uppercase text-muted">{{employee.role}}</span>
                 <ul class="social mb-0 list-inline mt-3">
                     <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-eye"></i></a></li>
