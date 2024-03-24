@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../model/employee';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,46 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employeeList = [
-    {
-      employeeName: 'Manuella Nevoresky',
-      role: 'Azure Cloud Developer',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg'
-    },
-    {
-      employeeName: 'Samuel Hardy',
-      role: 'Angular Developer',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-2.jpg'
-    },
-    {
-      employeeName: 'Tom Sunderland',
-      role: 'Transport Admin',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg'
-    },
-    {
-      employeeName: 'John Tarly',
-      role: 'Java Developer',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg'
-    },
+  employeeList: Employee[] = [];
 
-    {
-      employeeName: 'John Tarly',
-      role: 'Java Developer',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg'
-    },
-    {
-      employeeName: 'John Tarly',
-      role: 'Java Developer',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg'
-    },
-    {
-      employeeName: 'John Tarly',
-      role: 'Java Developer',
-      image: 'https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg'
-    }
-  ];
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // populating the employe list array with data
+    this.getEmployeeList();
+  }
+
+  getEmployeeList() {
+    this.employeeService.getAllEmployees().subscribe(
+      (data) => {
+        this.employeeList = data;
+      }
+    );
   }
 }
