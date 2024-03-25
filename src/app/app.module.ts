@@ -10,13 +10,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { LoaderComponent } from './loader/loader.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     NavBarComponent,
-    LoaderComponent
+    LoaderComponent,
+    EmployeeProfileComponent
   ],
   imports: [
     BrowserModule,

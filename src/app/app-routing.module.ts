@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 
 const routes: Routes = [
-  { path: '', component: EmployeeListComponent }
+  { path: 'employee', component: EmployeeListComponent },
+  { path: 'employee/:id', component: EmployeeProfileComponent }
 ];
 
 @NgModule({
