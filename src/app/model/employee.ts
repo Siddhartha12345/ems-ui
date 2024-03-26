@@ -13,5 +13,6 @@ export interface Employee {
     image: string,
     mobileNo: string,
     maritalStatus: string,
+    employeeInfo: string,
     department?: Department
 }
