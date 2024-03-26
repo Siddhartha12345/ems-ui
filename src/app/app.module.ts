@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { LoaderComponent } from './loader/loader.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { HttpheaderInterceptor } from './interceptors/httpheader.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,11 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpheaderInterceptor,
       multi: true
     }
   ],
