@@ -12,6 +12,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { LoaderComponent } from './loader/loader.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { HttpheaderInterceptor } from './interceptors/httpheader.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpheaderInterceptor } from './interceptors/httpheader.interceptor';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
