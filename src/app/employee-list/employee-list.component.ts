@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../model/employee';
 import { EmployeeService } from 'src/services/employee.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { BasicDetail } from '../model/basic-detail';
 
 declare var window: any;
 
@@ -12,32 +11,15 @@ declare var window: any;
 })
 export class EmployeeListComponent implements OnInit {
 
-  employeeList: Employee[] = [];
+  employeeList: BasicDetail[] = [];
 
-  // modal
-  formModal: any;
-  
-  // form
-  registerForm: FormGroup;
+  showModal: boolean = false;
 
-  constructor(private employeeService: EmployeeService,
-              private formBuilder: FormBuilder) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     // populating the employe list array with data
     this.getEmployeeList();
-
-    // modal
-    this.formModal = new window.bootstrap.Modal(
-      document.getElementById('myModal')
-    );
-
-    // form initialization
-    this.registerForm = this.formBuilder.group({
-      firstName: [''],
-      maritalStatus: [''],
-      gender: ['']
-    });
   }
 
   getEmployeeList() {
@@ -51,13 +33,10 @@ export class EmployeeListComponent implements OnInit {
   // modal
   openFormModal() {
     // display the modal
-    this.formModal.show();
+    this.showModal = true;
   }
 
-  // form on submit
-  onSubmit() {
-    console.log('Form value: ', this.registerForm.value);
-    this.formModal.hide();
-    this.registerForm.reset();
+  modalEmit(event: boolean) {
+    this.showModal = event;
   }
 }
