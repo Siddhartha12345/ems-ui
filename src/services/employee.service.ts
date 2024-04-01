@@ -20,4 +20,8 @@ export class EmployeeService {
   getEmployeeById(empId: string): Observable<Employee> {
     return this.http.get<Employee>(`${AppConfig.EMP_BASE_URL}/employee/${empId}`);
   }
+
+  addEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(`${AppConfig.EMP_BASE_URL}/employee`, employee);
+  } 
 }

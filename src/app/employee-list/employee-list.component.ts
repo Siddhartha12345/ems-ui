@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/services/employee.service';
-import { FormBuilder } from '@angular/forms';
 import { BasicDetail } from '../model/basic-detail';
 
 declare var window: any;
@@ -16,8 +15,7 @@ export class EmployeeListComponent implements OnInit {
 
   showModal: boolean = false;
 
-  constructor(private employeeService: EmployeeService,
-              private formBuilder: FormBuilder) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     // populating the employe list array with data

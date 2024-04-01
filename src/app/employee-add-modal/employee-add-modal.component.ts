@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EmployeeService } from 'src/services/employee.service';
 
 declare var window: any;
 
@@ -16,7 +18,9 @@ export class EmployeeAddModalComponent implements OnInit {
   @Output()
   modalEmitter = new EventEmitter<boolean>();
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              private employeeService: EmployeeService,
+              private router: Router) {}
 
   ngOnInit(): void {
     console.log('Inside add employee ngOnInit()...');
@@ -44,9 +48,21 @@ export class EmployeeAddModalComponent implements OnInit {
 
   onSubmit() {
     console.log('Form value: ', this.registerForm.value);
+    this.employeeService.addEmployee(this.registerForm.value).subscribe((data) => {
+      console.log(data);
+      this.reloadCurrentRoute();
+    });
     this.formModal.hide();  // removing the modal from employee-add-modal component
     this.registerForm.reset();
     this.modalEmitter.emit(false);  // removing the employee-add-modal component from employee-list component
+  }
+
+  // for reloading the current url - /employee 
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
   }
 
   onCancel() {
