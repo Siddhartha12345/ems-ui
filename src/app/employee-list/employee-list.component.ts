@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../model/employee';
 import { EmployeeService } from 'src/services/employee.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { BasicDetail } from '../model/basic-detail';
 
 declare var window: any;
 
@@ -12,7 +12,7 @@ declare var window: any;
 })
 export class EmployeeListComponent implements OnInit {
 
-  employeeList: Employee[] = [];
+  employeeList: BasicDetail[] = [];
 
   // modal
   formModal: any;
@@ -35,8 +35,17 @@ export class EmployeeListComponent implements OnInit {
     // form initialization
     this.registerForm = this.formBuilder.group({
       firstName: [''],
-      maritalStatus: [''],
-      gender: ['']
+      lastName: [''],
+      role: [''],
+      designation: [''],
+      gender: [''],
+      salary: [],
+      address: [''],
+      emailId: [''],
+      image: [''],
+      mobileNo: [''],
+      employeeInfo: [''],
+      maritalStatus: ['']
     });
   }
 

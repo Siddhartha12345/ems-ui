@@ -75,14 +75,14 @@
                     <!--Gender-->
                     <div class="col-md-7">
                         <div class="form-check-inline">
-                            <label class="form-check-label" for="genderRadio">Gender</label>
+                            <label class="form-check-label">Gender</label>
                         </div>
-                        <div class="form-check form-check-inline" id="genderRadio">
-                            <input class="form-check-input" type="radio" name="genderRadio" id="inlineRadio1" formControlName="gender" value="Male">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" formControlName="gender" value="Male">
                             <label class="form-check-label" for="inlineRadio1">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="genderRadio" id="inlineRadio2" formControlName="gender" value="Female">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" formControlName="gender" value="Female">
                             <label class="form-check-label" for="inlineRadio2">Female</label>
                         </div>
                     </div>
@@ -90,7 +90,6 @@
                     <div class="col-md-5">
                         <div class="form-floating">
                             <select formControlName="maritalStatus" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                                <option selected>Select</option>
                                 <option value="Single">Single</option>
                                 <option value="Married">Married</option>
                                 <option value="Divorced">Divorced</option>
@@ -113,7 +112,7 @@
                 </div>
                 <!--Email ID-->
                 <div class="form-floating col mb-3">
-                    <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="Email ID">
+                    <input type="email" class="form-control" id="floatingInput" formControlName="emailId" placeholder="Email ID">
                     <label for="floatingInput">Email ID</label>
                 </div>
                 <!--Address-->
@@ -128,7 +127,7 @@
                 </div>
                 <!--Employee info-->
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="employeeInfo" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Profile Info</label>
                 </div>
                 <!--Add and Cancel buttons-->
