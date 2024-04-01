@@ -44,9 +44,9 @@ export class EmployeeAddModalComponent implements OnInit {
 
   onSubmit() {
     console.log('Form value: ', this.registerForm.value);
-    this.formModal.hide();
+    this.formModal.hide();  // removing the modal from employee-add-modal component
     this.registerForm.reset();
-    this.modalEmitter.emit(false);
+    this.modalEmitter.emit(false);  // removing the employee-add-modal component from employee-list component
   }
 
   onCancel() {
