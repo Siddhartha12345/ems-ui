@@ -15,6 +15,7 @@
     background: #ddd;
     text-decoration: none;
     color: #555;
+    cursor: pointer;
 }
 
 #boot-icon {
@@ -26,6 +27,7 @@
 
 #boot-icon:hover {
     color: rgb(84, 84, 84);
+    cursor: pointer;
 }
 
 .badge {
