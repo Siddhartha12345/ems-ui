@@ -14,6 +14,7 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { HttpheaderInterceptor } from './interceptors/httpheader.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeAddModalComponent } from './employee-add-modal/employee-add-modal.component';
+import { EmployeeEditModalComponent } from './employee-edit-modal/employee-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EmployeeAddModalComponent } from './employee-add-modal/employee-add-mod
     NavBarComponent,
     LoaderComponent,
     EmployeeProfileComponent,
-    EmployeeAddModalComponent
+    EmployeeAddModalComponent,
+    EmployeeEditModalComponent
   ],
   imports: [
     BrowserModule,

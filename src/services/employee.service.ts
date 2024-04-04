@@ -23,5 +23,9 @@ export class EmployeeService {
 
   addEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(`${AppConfig.EMP_BASE_URL}/employee`, employee);
-  } 
+  }
+  
+  editEmployee(employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(`${AppConfig.EMP_BASE_URL}/employee`, employee);
+  }
 }

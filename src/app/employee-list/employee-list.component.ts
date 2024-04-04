@@ -15,6 +15,10 @@ export class EmployeeListComponent implements OnInit {
 
   showModal: boolean = false;
 
+  modalType: string;
+
+  basicEmployeeId: string;
+
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
@@ -31,9 +35,14 @@ export class EmployeeListComponent implements OnInit {
   }
 
   // modal
-  openFormModal() {
+  openFormModal(operationType: string, empId?: string) {
     // display the modal
     this.showModal = true;
+    if(operationType != 'add') {
+      console.log('<<--Employee ID-->>: ', empId);
+      this.basicEmployeeId = empId;
+    }
+    this.modalType = operationType;
   }
 
   modalEmit(event: boolean) {
