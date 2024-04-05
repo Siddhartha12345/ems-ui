@@ -15,6 +15,7 @@ import { HttpheaderInterceptor } from './interceptors/httpheader.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeAddModalComponent } from './employee-add-modal/employee-add-modal.component';
 import { EmployeeEditModalComponent } from './employee-edit-modal/employee-edit-modal.component';
+import { MobilePipe } from './pipe/mobile.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EmployeeEditModalComponent } from './employee-edit-modal/employee-edit-
     LoaderComponent,
     EmployeeProfileComponent,
     EmployeeAddModalComponent,
-    EmployeeEditModalComponent
+    EmployeeEditModalComponent,
+    MobilePipe
   ],
   imports: [
     BrowserModule,
