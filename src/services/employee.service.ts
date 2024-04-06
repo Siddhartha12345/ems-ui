@@ -28,4 +28,8 @@ export class EmployeeService {
   editEmployee(employee: Employee): Observable<Employee> {
     return this.http.put<Employee>(`${AppConfig.EMP_BASE_URL}/employee`, employee);
   }
+
+  deleteEmployee(employeeId: string): Observable<void> {
+    return this.http.delete<void>(`${AppConfig.EMP_BASE_URL}/employee/${employeeId}`);
+  }
 }

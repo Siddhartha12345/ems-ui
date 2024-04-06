@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/services/employee.service';
+import { EmployeeUtil } from '../util/employee-util';
 
 declare var window: any;
 
@@ -50,18 +51,10 @@ export class EmployeeAddModalComponent implements OnInit {
     console.log('Form value: ', this.registerForm.value);
     this.employeeService.addEmployee(this.registerForm.value).subscribe((data) => {
       console.log(data);
-      this.reloadCurrentRoute();
-    });
-    this.formModal.hide();  // removing the modal from employee-add-modal component
-    this.registerForm.reset();
-    this.modalEmitter.emit(false);  // removing the employee-add-modal component from employee-list component
-  }
-
-  // for reloading the current url - /employee 
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
+      EmployeeUtil.reloadCurrentRoute(this.router);
+      this.formModal.hide();  // removing the modal from employee-add-modal component
+      this.registerForm.reset();
+      this.modalEmitter.emit(false);  // removing the employee-add-modal component from employee-list component
     });
   }
 

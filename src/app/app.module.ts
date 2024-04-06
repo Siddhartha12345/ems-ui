@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeAddModalComponent } from './employee-add-modal/employee-add-modal.component';
 import { EmployeeEditModalComponent } from './employee-edit-modal/employee-edit-modal.component';
 import { MobilePipe } from './pipe/mobile.pipe';
+import { EmployeeDeleteModalComponent } from './employee-delete-modal/employee-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MobilePipe } from './pipe/mobile.pipe';
     EmployeeProfileComponent,
     EmployeeAddModalComponent,
     EmployeeEditModalComponent,
-    MobilePipe
+    MobilePipe,
+    EmployeeDeleteModalComponent
   ],
   imports: [
     BrowserModule,

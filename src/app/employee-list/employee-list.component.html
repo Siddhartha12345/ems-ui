@@ -25,7 +25,7 @@
                     <li class="list-inline-item"><a [routerLink]="['/employee', employee.employeeId]" class="social-link"><i class="fa fa-eye"></i></a></li>
                     <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-heart-o"></i></a></li>
                     <li class="list-inline-item"><a (click)="openFormModal('edit', employee.employeeId)" class="social-link"><i class="fa fa-pencil"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-trash-o"></i></a></li>
+                    <li class="list-inline-item"><a (click)="openFormModal('delete', employee.employeeId)" class="social-link"><i class="fa fa-trash-o"></i></a></li>
                 </ul>
             </div>
         </div>  <!--Employee card end-->
@@ -40,9 +40,16 @@
 </div>
 
 <!--show modal when above button is clicked, and close it when event occurs to close it-->
-<app-employee-add-modal *ngIf="showModal == true && modalType == 'add'" (modalEmitter)="modalEmit($event)"></app-employee-add-modal>
+<app-employee-add-modal *ngIf="showModal == true && modalType == 'add'" 
+                        (modalEmitter)="modalEmit($event)">
+</app-employee-add-modal>
 
 <app-employee-edit-modal *ngIf="showModal == true && modalType == 'edit'" 
                         (modalEmitter)="modalEmit($event)"
                         [employeeId]="basicEmployeeId">
 </app-employee-edit-modal>
+
+<app-employee-delete-modal *ngIf="showModal == true && modalType == 'delete'"
+                            (modalEmitter)="modalEmit($event)"
+                            [employeeId]="basicEmployeeId">
+</app-employee-delete-modal>
