@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Employee } from '../model/employee';
 import { EmployeeService } from 'src/services/employee.service';
 import { Router } from '@angular/router';
+import { EmployeeUtil } from '../util/employee-util';
 
 declare var window: any;
 
@@ -80,18 +81,10 @@ export class EmployeeEditModalComponent implements OnInit {
     console.log('Form value: ', this.registerForm.value);
     this.employeeService.editEmployee(this.registerForm.value).subscribe((data) => {
       console.log('<<--PUT Response-->> : ', data);
-      this.reloadCurrentRoute();
-    });
-    this.formModal.hide();  // removing the modal from employee-edit-modal component
-    this.registerForm.reset();
-    this.modalEmitter.emit(false);  // removing the employee-edit-modal component from employee-list component
-  }
-
-  // for reloading the current url - /employee 
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate([currentUrl]);
+      EmployeeUtil.reloadCurrentRoute(this.router);
+      this.formModal.hide();  // removing the modal from employee-edit-modal component
+      this.registerForm.reset();
+      this.modalEmitter.emit(false);  // removing the employee-edit-modal component from employee-list component
     });
   }
 
