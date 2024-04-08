@@ -12,7 +12,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { LoaderComponent } from './loader/loader.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { HttpheaderInterceptor } from './interceptors/httpheader.interceptor';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeAddModalComponent } from './employee-add-modal/employee-add-modal.component';
 import { EmployeeEditModalComponent } from './employee-edit-modal/employee-edit-modal.component';
 import { MobilePipe } from './pipe/mobile.pipe';
@@ -36,7 +36,8 @@ import { EmployeeDeleteModalComponent } from './employee-delete-modal/employee-d
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {

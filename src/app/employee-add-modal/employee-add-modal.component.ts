@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/services/employee.service';
 import { EmployeeUtil } from '../util/employee-util';
@@ -15,6 +15,7 @@ export class EmployeeAddModalComponent implements OnInit {
 
   formModal: any;
   registerForm: FormGroup;
+  submitted: boolean = false;
 
   @Output()
   modalEmitter = new EventEmitter<boolean>();
@@ -30,24 +31,25 @@ export class EmployeeAddModalComponent implements OnInit {
     );
 
     this.registerForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      role: [''],
-      designation: [''],
-      gender: [''],
-      salary: [],
-      address: [''],
-      emailId: [''],
-      image: [''],
-      mobileNo: [''],
-      employeeInfo: [''],
-      maritalStatus: ['']
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      role: ['', Validators.required],
+      designation: ['', Validators.required],
+      gender: ['', Validators.required],
+      salary: [, Validators.required],
+      address: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
+      emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}')]],
+      image: ['', [Validators.required, Validators.pattern('(http|https)+://[a-z0-9A-Z._%+-/]+\.(jpg|png)')]],
+      mobileNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      employeeInfo: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(500)]],
+      maritalStatus: ['', Validators.required]
     });
 
     this.formModal.show();
   }
 
   onSubmit() {
+    this.submitted = true;
     console.log('Form value: ', this.registerForm.value);
     this.employeeService.addEmployee(this.registerForm.value).subscribe((data) => {
       console.log(data);
@@ -60,5 +62,9 @@ export class EmployeeAddModalComponent implements OnInit {
 
   onCancel() {
     this.modalEmitter.emit(false);
+  }
+
+  get registerFormControl() {
+    return this.registerForm.controls;
   }
 } 

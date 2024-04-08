@@ -13,22 +13,42 @@
                       <div class="form-floating col mb-3">
                           <input type="text" class="form-control" id="floatingInput" formControlName="firstName" placeholder="First Name">
                           <label for="floatingInput">First Name</label>
+                          <div *ngIf="(registerFormControl['firstName'].touched || submitted) && registerFormControl['firstName'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['firstName'].errors?.['required']">
+                                Please enter First Name
+                            </span>
+                          </div>
                       </div>
                       <!--Last name-->
                       <div class="form-floating col mb-3">
                           <input type="text" class="form-control" id="floatingInput" formControlName="lastName" placeholder="Last Name">
                           <label for="floatingInput">Last Name</label>
+                          <div *ngIf="(registerFormControl['lastName'].touched || submitted) && registerFormControl['lastName'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['lastName'].errors?.['required']">
+                                Please enter Last Name
+                            </span>
+                          </div>
                       </div>
                   </div>
                   <!--Role-->
                   <div class="form-floating mb-3">
                       <input type="text" class="form-control" id="floatingInput" formControlName="role" placeholder="Role">
                       <label for="floatingInput">Role</label>
+                      <div *ngIf="(registerFormControl['role'].touched || submitted) && registerFormControl['role'].errors">
+                        <span class="text-danger" *ngIf="registerFormControl['role'].errors?.['required']">
+                            Please enter Role
+                        </span>
+                      </div>
                   </div>
                   <!--Designation-->
                   <div class="form-floating mb-3">
                       <input type="text" class="form-control" id="floatingInput" formControlName="designation" placeholder="Designation">
                       <label for="floatingInput">Designation</label>
+                      <div *ngIf="(registerFormControl['designation'].touched || submitted) && registerFormControl['designation'].errors">
+                        <span class="text-danger" *ngIf="registerFormControl['designation'].errors?.['required']">
+                            Please enter Designation
+                        </span>
+                      </div>  
                   </div>
                   <div class="row g-2 mb-3">
                       <!--Gender-->
@@ -44,6 +64,11 @@
                               <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" formControlName="gender" value="Female">
                               <label class="form-check-label" for="inlineRadio2">Female</label>
                           </div>
+                          <div *ngIf="submitted && registerFormControl['gender'].errors">
+                            <span class="text-danger"*ngIf="registerFormControl['gender'].errors?.['required']">
+                                Please select Gender
+                            </span>
+                          </div>
                       </div>
                       <!--Marital status-->
                       <div class="col-md-5">
@@ -54,6 +79,11 @@
                                   <option value="Divorced">Divorced</option>
                               </select>
                               <label for="floatingSelectGrid">Marital Status</label>
+                              <div *ngIf="submitted && registerFormControl['maritalStatus'].errors">
+                                <span class="text-danger" *ngIf="registerFormControl['maritalStatus'].errors?.['required']">
+                                    Please select Marital Status
+                                </span>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -62,32 +92,77 @@
                       <div class="form-floating col">
                           <input type="number" class="form-control" id="floatingInput" formControlName="salary" placeholder="Salary">
                           <label for="floatingInput">Salary</label>
+                          <div *ngIf="(registerFormControl['salary'].touched || submitted) && registerFormControl['salary'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['salary'].errors?.['required']">
+                                Please enter Salary
+                            </span>
+                          </div>
                       </div>
                       <!--Mobile number-->
                       <div class="form-floating col">
                           <input type="number" class="form-control" id="floatingInput" formControlName="mobileNo" placeholder="Mobile Number">
                           <label for="floatingInput">Mobile Number</label>
+                          <div *ngIf="(registerFormControl['mobileNo'].touched || submitted) && registerFormControl['mobileNo'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['mobileNo'].errors?.['pattern']">
+                                Mobile number should contain 10 digits
+                            </span>
+                            <span class="text-danger" *ngIf="registerFormControl['mobileNo'].errors['required']">
+                                Please enter Mobile number
+                            </span>
+                          </div>
                       </div>
                   </div>
                   <!--Email ID-->
                   <div class="form-floating col mb-3">
                       <input type="email" class="form-control" id="floatingInput" formControlName="emailId" placeholder="Email ID">
                       <label for="floatingInput">Email ID</label>
+                      <div *ngIf="(registerFormControl['emailId'].touched || submitted) && registerFormControl['emailId'].errors">
+                        <span class="text-danger" *ngIf="registerFormControl['emailId'].errors?.['required']">
+                            Please enter Email ID
+                        </span>
+                        <span class="text-danger" *ngIf="registerFormControl['emailId'].errors?.['pattern']">
+                            Please enter a valid Email ID 
+                        </span>
+                      </div>
                   </div>
                   <!--Address-->
                   <div class="form-floating col mb-3">
                       <input type="text" class="form-control" id="floatingInput" formControlName="address" placeholder="Address">
                       <label for="floatingInput">Address</label>
+                      <div *ngIf="(registerFormControl['address'].touched || submitted) && registerFormControl['address'].errors">
+                        <span class="text-danger" *ngIf="registerFormControl['address'].errors?.['required']">
+                            Please enter Address
+                        </span>
+                        <span class="text-danger" *ngIf="registerFormControl['address'].errors?.['minlength'] || registerFormControl['address'].errors?.['maxlength']">
+                            Address should have minimum 8 to maximum 50 characters
+                        </span>
+                      </div>
                   </div>
                   <!--Image-->
                   <div class="form-floating col mb-3">
                       <input type="text" class="form-control" id="floatingInput" formControlName="image" placeholder="Profile Image">
                       <label for="floatingInput">Profile Image</label>
+                      <div *ngIf="(registerFormControl['image'].touched || submitted) && registerFormControl['image'].errors">
+                        <span class="text-danger" *ngIf="registerFormControl['image'].errors?.['required']">
+                            Please provide Image url 
+                        </span>
+                        <span class="text-danger" *ngIf="registerFormControl['image'].errors?.['pattern']">
+                            Please provide a valid Image url 
+                        </span>
+                      </div>
                   </div>
                   <!--Employee info-->
                   <div class="form-floating">
                       <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="employeeInfo" style="height: 100px"></textarea>
                       <label for="floatingTextarea2">Profile Info</label>
+                      <div *ngIf="(registerFormControl['employeeInfo'].touched || submitted) && registerFormControl['employeeInfo'].errors">
+                        <span class="text-danger" *ngIf="registerFormControl['employeeInfo'].errors?.['required']">
+                            Please provide Employee information
+                        </span>
+                        <span class="text-danger" *ngIf="registerFormControl['employeeInfo'].errors?.['minlength'] || registerFormControl['employeeInfo'].errors?.['maxlength']">
+                            Employee information should have minimum 8 to maximum 500 characters
+                        </span>
+                      </div>
                   </div>
                   <!--Add and Cancel buttons-->
                   <div class="modal-footer">
