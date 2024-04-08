@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/services/employee.service';
 import { EmployeeUtil } from '../util/employee-util';
+import { AppConfig } from '../app.config';
 
 declare var window: any;
 
@@ -38,9 +39,9 @@ export class EmployeeAddModalComponent implements OnInit {
       gender: ['', Validators.required],
       salary: [, Validators.required],
       address: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
-      emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}')]],
-      image: ['', [Validators.required, Validators.pattern('(http|https)+://[a-z0-9A-Z._%+-/]+\.(jpg|png)')]],
-      mobileNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      emailId: ['', [Validators.required, Validators.pattern(AppConfig.EMP_EMAIL_REGEX)]],
+      image: ['', [Validators.required, Validators.pattern(AppConfig.EMP_IMAGE_REGEX)]],
+      mobileNo: ['', [Validators.required, Validators.pattern(AppConfig.EMP_MOBILE_REGEX)]],
       employeeInfo: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(500)]],
       maritalStatus: ['', Validators.required]
     });
@@ -64,6 +65,7 @@ export class EmployeeAddModalComponent implements OnInit {
     this.modalEmitter.emit(false);
   }
 
+  // get the form controls for registerForm
   get registerFormControl() {
     return this.registerForm.controls;
   }

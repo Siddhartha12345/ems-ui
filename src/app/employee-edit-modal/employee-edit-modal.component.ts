@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../model/employee';
 import { EmployeeService } from 'src/services/employee.service';
 import { Router } from '@angular/router';
 import { EmployeeUtil } from '../util/employee-util';
+import { AppConfig } from '../app.config';
 
 declare var window: any;
 
@@ -16,6 +17,7 @@ export class EmployeeEditModalComponent implements OnInit {
 
   formModal: any;
   registerForm: FormGroup;
+  submitted: boolean = false;
 
   @Output()
   modalEmitter = new EventEmitter<boolean>();
@@ -36,18 +38,18 @@ export class EmployeeEditModalComponent implements OnInit {
     // initializing form
     this.registerForm = this.formBuilder.group({
       employeeId: [''],
-      firstName: [''],
-      lastName: [''],
-      role: [''],
-      designation: [''],
-      gender: [''],
-      salary: [],
-      address: [''],
-      emailId: [''],
-      image: [''],
-      mobileNo: [''],
-      employeeInfo: [''],
-      maritalStatus: ['']
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      role: ['', Validators.required],
+      designation: ['', Validators.required],
+      gender: ['', Validators.required],
+      salary: [, Validators.required],
+      address: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
+      emailId: ['', [Validators.required, Validators.pattern(AppConfig.EMP_EMAIL_REGEX)]],
+      image: ['', [Validators.required, Validators.pattern(AppConfig.EMP_IMAGE_REGEX)]],
+      mobileNo: ['', [Validators.required, Validators.pattern(AppConfig.EMP_MOBILE_REGEX)]],
+      employeeInfo: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(500)]],
+      maritalStatus: ['', Validators.required]
     });
 
     this.formModal.show();
@@ -78,6 +80,7 @@ export class EmployeeEditModalComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     console.log('Form value: ', this.registerForm.value);
     this.employeeService.editEmployee(this.registerForm.value).subscribe((data) => {
       console.log('<<--PUT Response-->> : ', data);
@@ -90,5 +93,10 @@ export class EmployeeEditModalComponent implements OnInit {
 
   onCancel() {
     this.modalEmitter.emit(false);
+  }
+
+  // get the form controls for registerForm
+  get registerFormControl() {
+    return this.registerForm.controls;
   }
 }
