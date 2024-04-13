@@ -1,0 +1,9 @@
+input[type="text"].ng-valid.ng-touched, input[type="number"].ng-valid.ng-touched, input[type="email"].ng-valid.ng-touched,
+textarea.ng-valid.ng-touched {
+    border-left: 5px solid #42A948;
+}
+
+input[type="text"].ng-invalid.ng-touched, input[type="number"].ng-invalid.ng-touched, input[type="email"].ng-invalid.ng-touched,
+input[type="radio"].ng-invalid.ng-touched, textarea.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+    border-left: 5px solid #d52623;
+}
