@@ -14,22 +14,22 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   getAllEmployees(): Observable<BasicDetail[]> {
-    return this.http.get<BasicDetail[]>(`${AppConfig.EMP_BASE_URL}/employee`);
+    return this.http.get<BasicDetail[]>(`${AppConfig.API_GATEWAY_URL}${AppConfig.EMP_CONTEXT_PATH}/employee`);
   }
 
   getEmployeeById(empId: string): Observable<Employee> {
-    return this.http.get<Employee>(`${AppConfig.EMP_BASE_URL}/employee/${empId}`);
+    return this.http.get<Employee>(`${AppConfig.API_GATEWAY_URL}${AppConfig.EMP_CONTEXT_PATH}/employee/${empId}`);
   }
 
   addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(`${AppConfig.EMP_BASE_URL}/employee`, employee);
+    return this.http.post<Employee>(`${AppConfig.API_GATEWAY_URL}${AppConfig.EMP_CONTEXT_PATH}/employee`, employee);
   }
   
   editEmployee(employee: Employee): Observable<Employee> {
-    return this.http.put<Employee>(`${AppConfig.EMP_BASE_URL}/employee`, employee);
+    return this.http.put<Employee>(`${AppConfig.API_GATEWAY_URL}${AppConfig.EMP_CONTEXT_PATH}/employee`, employee);
   }
 
   deleteEmployee(employeeId: string): Observable<void> {
-    return this.http.delete<void>(`${AppConfig.EMP_BASE_URL}/employee/${employeeId}`);
+    return this.http.delete<void>(`${AppConfig.API_GATEWAY_URL}${AppConfig.EMP_CONTEXT_PATH}/employee/${employeeId}`);
   }
 }

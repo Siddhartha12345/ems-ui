@@ -42,10 +42,11 @@
 }
 
 h1 {
-    text-shadow: 2px 2px 5px black;
+    font-weight: 400;
     color: white;
 }
 
-p {
+.lead {
+    color: white;
     font: caption;
 }

@@ -17,6 +17,7 @@ import { EmployeeAddModalComponent } from './employee/employee-add-modal/employe
 import { EmployeeEditModalComponent } from './employee/employee-edit-modal/employee-edit-modal.component';
 import { MobilePipe } from './pipe/mobile.pipe';
 import { EmployeeDeleteModalComponent } from './employee/employee-delete-modal/employee-delete-modal.component';
+import { DepartmentListComponent } from './department/department-list/department-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EmployeeDeleteModalComponent } from './employee/employee-delete-modal/e
     EmployeeAddModalComponent,
     EmployeeEditModalComponent,
     MobilePipe,
-    EmployeeDeleteModalComponent
+    EmployeeDeleteModalComponent,
+    DepartmentListComponent
   ],
   imports: [
     BrowserModule,
