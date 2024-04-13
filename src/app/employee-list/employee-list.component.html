@@ -1,7 +1,5 @@
-<app-nav-bar></app-nav-bar>
-
 <div class="container py-5">
-    <div class="row text-center text-white">
+    <div class="row text-center">
         <div class="col-lg-8 mx-auto">
             <h1 class="display-4">Team Portal</h1>
             <p class="lead mb-0">Welcome to the Employee Manager Portal for managing our employees</p>
@@ -14,7 +12,7 @@
     <div class="row text-center">
         <!--Employee card start-->
         <div *ngFor="let employee of employeeList" class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4">
+            <div class="bg-white rounded shadow-lg py-5 px-4">
                 <img src="{{employee.image}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                 <span *ngIf="employee.department != null; else unassigned" class="badge bg-success">ASSIGNED</span>
                 <ng-template #unassigned>

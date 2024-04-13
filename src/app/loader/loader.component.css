@@ -5,7 +5,7 @@
  height: 100%;
  top: 0;
  left: 0;
- background: linear-gradient(to right, #e8cbc0, #636fa4);
+ background: linear-gradient(to right, white, white);
  z-index: 99999;
 }
 
