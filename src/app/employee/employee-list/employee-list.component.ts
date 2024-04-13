@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/services/employee.service';
-import { BasicDetail } from '../model/basic-detail';
+import { BasicDetail } from '../../model/basic-detail';
 
 declare var window: any;
 
