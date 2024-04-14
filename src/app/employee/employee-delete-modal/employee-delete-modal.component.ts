@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmployeeService } from 'src/services/employee.service';
 import { EmployeeUtil } from '../../util/employee-util';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 declare var window: any;
 

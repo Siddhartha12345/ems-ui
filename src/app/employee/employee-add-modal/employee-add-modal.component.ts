@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeeService } from 'src/services/employee.service';
 import { EmployeeUtil } from '../../util/employee-util';
 import { AppConfig } from '../../app.config';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 declare var window: any;
 
