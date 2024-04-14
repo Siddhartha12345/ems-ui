@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppConfig } from 'src/app/app.config';
 import { Department } from 'src/app/model/department';
-import { DepartmentService } from 'src/services/department.service';
+import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
   selector: 'app-department-list',

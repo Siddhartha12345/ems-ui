@@ -11,8 +11,8 @@
 <div class="container">
     <div class="row text-center">
         <!--Employee card start-->
-        <div *ngFor="let employee of employeeList" class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-lg py-5 px-4">
+        <div *ngFor="let employee of employeeList" class="col-xl-3 col-sm-6 mb-5" >
+            <div class="bg-white rounded shadow-lg py-5 px-4" style="border: 3px solid rgb(196, 196, 196);">
                 <img src="{{employee.image}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                 <span *ngIf="employee.department != null; else unassigned" class="badge bg-success">ASSIGNED</span>
                 <ng-template #unassigned>
