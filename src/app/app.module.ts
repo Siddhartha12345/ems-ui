@@ -19,6 +19,7 @@ import { MobilePipe } from './pipe/mobile.pipe';
 import { EmployeeDeleteModalComponent } from './employee/employee-delete-modal/employee-delete-modal.component';
 import { DepartmentListComponent } from './department/department-list/department-list.component';
 import { ErrorComponent } from './error/error.component';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,11 @@ import { ErrorComponent } from './error/error.component';
     FormsModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
