@@ -12,7 +12,8 @@ const routes: Routes = [
   // specific to department
   { path: 'department', component: DepartmentListComponent },
   // error
-  { path: 'error', component: ErrorComponent } 
+  { path: 'error', component: ErrorComponent },
+  { path: '**', component: ErrorComponent, data: { errorStatus: '404' }  } 
 ];
 
 @NgModule({

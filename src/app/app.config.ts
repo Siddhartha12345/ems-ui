@@ -18,4 +18,11 @@ export class AppConfig {
         5: 'bg-secondary',
         6: 'bg-success'
     };
+
+    // error messages based on error code
+    public static readonly EMS_ERROR: {[key: string]: string} = {
+        "503": "The server is temporarily unable to service your request may be due to one or more services currently down, or due to maintenance downtime or capacity problems. Please try again later.",
+        "404": "Oh no! We couldn't find the content you requested.",
+        "500": "The page cannot be displayed because an internal server error has occurred. Please try again later."
+    }
 }
