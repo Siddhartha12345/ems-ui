@@ -30,3 +30,14 @@ h1 {
     font: caption;
 }
 
+#boot-icon {
+    font-size: 200px;
+    opacity: 0.4;
+    color: rgb(128, 128, 128);
+    justify-content: center;
+}
+
+#boot-icon:hover {
+    color: black;
+    cursor: pointer;
+}

@@ -28,5 +28,21 @@
                 </div>
             </div>
         </div>
+        <div class="col mt-4 mb-4">
+            <div class="card radius-15">
+                <div class="card-body text-center">
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <a (click)="openFormModal('add')"><i class="bi bi-plus-circle" id="boot-icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<!--show modal when above button is clicked, and close it when event occurs to close it-->
+<app-department-add-modal *ngIf="showModal == true && modalType == 'add'"
+                            (modalEmitter)="modalEmit($event)">
+</app-department-add-modal>

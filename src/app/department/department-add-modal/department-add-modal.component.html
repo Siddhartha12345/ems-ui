@@ -1,0 +1,62 @@
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Add Department</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" (click)="onCancel()"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                    <!--Dept Name-->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" formControlName="departmentName" placeholder="Department Name">
+                        <label for="floatingInput">Department Name</label>
+                        <!-- <div *ngIf="(registerFormControl['role'].touched || submitted) && registerFormControl['role'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['role'].errors?.['required']">
+                                Please enter Role
+                            </span>
+                        </div> -->
+                    </div>
+                    <!--Dept head-->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" formControlName="departmentHead" placeholder="Department Head">
+                        <label for="floatingInput">Department Head</label>
+                        <!-- <div *ngIf="(registerFormControl['role'].touched || submitted) && registerFormControl['role'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['role'].errors?.['required']">
+                                Please enter Role
+                            </span>
+                        </div> -->
+                    </div>
+                    <!--Department logo-->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" formControlName="departmentLogo" placeholder="Department Logo">
+                        <label for="floatingInput">Department Logo</label>
+                        <!-- <div *ngIf="(registerFormControl['role'].touched || submitted) && registerFormControl['role'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['role'].errors?.['required']">
+                                Please enter Role
+                            </span>
+                        </div> -->
+                    </div>
+                    <!--Department info-->
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="departmentInfo" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Department Info</label>
+                        <!-- <div *ngIf="(registerFormControl['employeeInfo'].touched || submitted) && registerFormControl['employeeInfo'].errors">
+                            <span class="text-danger" *ngIf="registerFormControl['employeeInfo'].errors?.['required']">
+                                Please provide Employee information
+                            </span>
+                            <span class="text-danger" *ngIf="registerFormControl['employeeInfo'].errors?.['minlength'] || registerFormControl['employeeInfo'].errors?.['maxlength']">
+                                Employee information should have minimum 8 to maximum 500 characters
+                            </span>
+                        </div> -->
+                    </div>
+                    <!--Add and Cancel buttons-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onCancel()">Cancel</button>
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

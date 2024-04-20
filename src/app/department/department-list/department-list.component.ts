@@ -11,6 +11,8 @@ import { DepartmentService } from 'src/app/services/department.service';
 export class DepartmentListComponent implements OnInit {
 
   departmentList: Department[];
+  showModal: boolean = false;
+  modalType: string;
   
   constructor(private departmentService: DepartmentService) {}
 
@@ -38,5 +40,15 @@ export class DepartmentListComponent implements OnInit {
     const deptBgColorList = AppConfig.DEPT_BGCOLOR_LIST;
     console.log('Bg color based on generated random no', deptBgColorList[randomNum]);
     return deptBgColorList[randomNum];
+  }
+
+  openFormModal(operationType: string, deptId?: string) {
+    // display the modal
+    this.showModal = true;
+    this.modalType = operationType;
+  }
+
+  modalEmit(event: boolean) {
+    this.showModal = event;
   }
 }

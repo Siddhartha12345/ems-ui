@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../../model/employee';
 import { Router } from '@angular/router';
-import { EmployeeUtil } from '../../util/employee-util';
+import { EMSUtil } from '../../util/ems-util';
 import { AppConfig } from '../../app.config';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -84,7 +84,7 @@ export class EmployeeEditModalComponent implements OnInit {
     console.log('Form value: ', this.registerForm.value);
     this.employeeService.editEmployee(this.registerForm.value).subscribe((data) => {
       console.log('<<--PUT Response-->> : ', data);
-      EmployeeUtil.reloadCurrentRoute(this.router);
+      EMSUtil.reloadCurrentRoute(this.router);
       this.formModal.hide();  // removing the modal from employee-edit-modal component
       this.registerForm.reset();
       this.modalEmitter.emit(false);  // removing the employee-edit-modal component from employee-list component

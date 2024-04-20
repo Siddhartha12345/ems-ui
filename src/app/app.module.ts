@@ -21,6 +21,7 @@ import { DepartmentListComponent } from './department/department-list/department
 import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { DepartmentProfileComponent } from './department/department-profile/department-profile.component';
+import { DepartmentAddModalComponent } from './department/department-add-modal/department-add-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DepartmentProfileComponent } from './department/department-profile/depa
     EmployeeDeleteModalComponent,
     DepartmentListComponent,
     ErrorComponent,
-    DepartmentProfileComponent
+    DepartmentProfileComponent,
+    DepartmentAddModalComponent
   ],
   imports: [
     BrowserModule,
