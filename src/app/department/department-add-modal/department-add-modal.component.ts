@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppConfig } from 'src/app/app.config';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EMSUtil } from 'src/app/util/ems-util';
 
@@ -15,6 +16,7 @@ export class DepartmentAddModalComponent implements OnInit {
 
   formModal: any;
   addForm: FormGroup;
+  submitted: boolean = false;
 
   @Output()
   modalEmitter = new EventEmitter<boolean>();
@@ -30,16 +32,17 @@ export class DepartmentAddModalComponent implements OnInit {
     );
 
     this.addForm = this.formBuilder.group({
-      departmentName: [''],
-      departmentHead: [''],
-      departmentLogo: [''],
-      departmentInfo: ['']
+      departmentName: ['', Validators.required],
+      departmentHead: ['', Validators.required],
+      departmentLogo: ['', [Validators.required, Validators.pattern(AppConfig.DEPT_LOGO_REGEX)]],
+      departmentInfo: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(500)]]
     });
 
     this.formModal.show();
   }
 
   onSubmit() {
+    this.submitted = true;
     console.log('Form value:', this.addForm.value);
     this.departmentService.addDepartment(this.addForm.value).subscribe(data => {
       console.log('Department added:', data);
@@ -52,5 +55,10 @@ export class DepartmentAddModalComponent implements OnInit {
 
   onCancel() {
     this.modalEmitter.emit(false);
+  }
+
+  // get the controls for addForm
+  get addFormControl() {
+    return this.addForm.controls;
   }
 }
