@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmployeeUtil } from '../../util/employee-util';
+import { EMSUtil } from '../../util/ems-util';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 declare var window: any;
@@ -35,7 +35,7 @@ export class EmployeeDeleteModalComponent implements OnInit {
     console.log('Employee deleted....');
     this.employeeService.deleteEmployee(this.employeeId).subscribe(() => {
       console.log('Employee deleted...');
-      EmployeeUtil.reloadCurrentRoute(this.router);
+      EMSUtil.reloadCurrentRoute(this.router);
       this.deleteModal.hide();  // removing the modal from employee-delete-modal component
       this.modalEmitter.emit(false);  // removing the employee-delete-modal component from employee-list component
     });

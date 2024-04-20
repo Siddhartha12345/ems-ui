@@ -20,6 +20,8 @@ import { EmployeeDeleteModalComponent } from './employee/employee-delete-modal/e
 import { DepartmentListComponent } from './department/department-list/department-list.component';
 import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { DepartmentProfileComponent } from './department/department-profile/department-profile.component';
+import { DepartmentAddModalComponent } from './department/department-add-modal/department-add-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     MobilePipe,
     EmployeeDeleteModalComponent,
     DepartmentListComponent,
-    ErrorComponent
+    ErrorComponent,
+    DepartmentProfileComponent,
+    DepartmentAddModalComponent
   ],
   imports: [
     BrowserModule,

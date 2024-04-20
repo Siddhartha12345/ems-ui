@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeeUtil } from '../../util/employee-util';
+import { EMSUtil } from '../../util/ems-util';
 import { AppConfig } from '../../app.config';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -54,7 +54,7 @@ export class EmployeeAddModalComponent implements OnInit {
     console.log('Form value: ', this.registerForm.value);
     this.employeeService.addEmployee(this.registerForm.value).subscribe((data) => {
       console.log(data);
-      EmployeeUtil.reloadCurrentRoute(this.router);
+      EMSUtil.reloadCurrentRoute(this.router);
       this.formModal.hide();  // removing the modal from employee-add-modal component
       this.registerForm.reset();
       this.modalEmitter.emit(false);  // removing the employee-add-modal component from employee-list component

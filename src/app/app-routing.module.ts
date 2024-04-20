@@ -4,6 +4,7 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import { EmployeeProfileComponent } from './employee/employee-profile/employee-profile.component';
 import { DepartmentListComponent } from './department/department-list/department-list.component';
 import { ErrorComponent } from './error/error.component';
+import { DepartmentProfileComponent } from './department/department-profile/department-profile.component';
 
 const routes: Routes = [
   // specific to employee
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'employee/:id', component: EmployeeProfileComponent },
   // specific to department
   { path: 'department', component: DepartmentListComponent },
-  // error
+  { path: 'department/:id', component: DepartmentProfileComponent },
+  // specific to error
   { path: 'error', component: ErrorComponent },
   { path: '**', component: ErrorComponent, data: { errorStatus: '404' }  } 
 ];
