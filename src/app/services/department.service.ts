@@ -14,4 +14,8 @@ export class DepartmentService {
   getDepartmentList(): Observable<Department[]> {
     return this.http.get<Department[]>(`${AppConfig.API_GATEWAY_URL}${AppConfig.DEPT_CONTEXT_PATH}/department`);
   }
+
+  getDepartment(deptId: string): Observable<Department> {
+    return this.http.get<Department>(`${AppConfig.API_GATEWAY_URL}${AppConfig.DEPT_CONTEXT_PATH}/department/${deptId}`);
+  }
 }

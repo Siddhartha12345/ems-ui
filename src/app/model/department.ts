@@ -3,5 +3,6 @@ export interface Department {
     departmentName: string,
     departmentHead: string,
     departmentLogo: string,
+    departmentInfo: string,
     departmentBgColor?: string
 }
