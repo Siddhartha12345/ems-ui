@@ -23,8 +23,18 @@ export class AppConfig {
 
     // error messages based on error code
     public static readonly EMS_ERROR: {[key: string]: string} = {
+        // HTTP error codes
         "503": "The server is temporarily unable to service your request may be due to one or more services currently down, or due to maintenance downtime or capacity problems. Please try again later.",
         "404": "Oh no! We couldn't find the content you requested.",
-        "500": "The page cannot be displayed because an internal server error has occurred. Please try again later."
+        "500": "The page cannot be displayed because an internal server error has occurred. Please try again later.",
+        // department-svc error codes
+        "DEP-SVC-003": "You are currently seeing this error because you were trying to access a department with an ID that does not exist in our database.",
+        "DEP-SVC-001": "You are currently seeing this error page because currently there are no departments existing in our database. Please try adding some departments.",
+        // employee-svc error codes
+        "EMP-SVC-001": "You are currently seeing this error page because currently there are no employees existing in our database. Please try adding some employees.",
+        "EMP-SVC-003": "You are currently seeing this error because you were trying to access an employee with an ID that does not exist in our database.",
+        "EMP-SVC-004": "There was en unexpected error encountered as during deleting the given employee, we were unable to persist it's employee ID in our database for future reusability.",
+        "EMP-SVC-005": "You are currently seeing this error page because somehow you were trying to assign/access a non-existing department for an employee.",
+        "EMP-SVC-006": "There was an unexpected error encountered as during assigning a reused employee ID we were unable to delete it from the DB in order to prevent it from getting reused again."
     }
 }

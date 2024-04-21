@@ -13,6 +13,9 @@ import { NavigationExtras, Router } from '@angular/router';
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
+  status: string;
+  error: any;
+
   constructor(private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -28,15 +31,21 @@ export class ErrorInterceptor implements HttpInterceptor {
           }
         },
         (err: HttpErrorResponse) => {
-          if(err.status != 400) { // opting out the 400 bad request condition
-            console.log('Error encountered', err);
-            const navigationExtras: NavigationExtras = {
-              state: {
-                errorStatus: err.error.status
-              }
-            };
-            this.router.navigateByUrl('/error', navigationExtras);
+          this.error = err.error;
+          if(this.error.hasOwnProperty('status') && this.error.status != 400) { // handling the http error codes and opting out the 400 bad request condition
+            console.log('Error encountered', this.error);
+            this.status = this.error.status;
           }
+          if(this.error.hasOwnProperty('errorCode')) {  // handling the application error codes
+            console.log('Error encountered:', this.error);
+            this.status = this.error.errorCode;
+          }
+          const navigationExtras: NavigationExtras = {
+            state: {
+              errorStatus: this.status
+            }
+          };
+          this.router.navigateByUrl('/error', navigationExtras);
         }
       )
     });
