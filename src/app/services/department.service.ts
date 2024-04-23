@@ -26,4 +26,8 @@ export class DepartmentService {
   editDepartment(department: Department): Observable<Department> {
     return this.http.put<Department>(`${AppConfig.API_GATEWAY_URL}${AppConfig.DEPT_CONTEXT_PATH}/department`, department);
   }
+
+  deleteDepartment(deptId: string): Observable<void> {
+    return this.http.delete<void>(`${AppConfig.API_GATEWAY_URL}${AppConfig.DEPT_CONTEXT_PATH}/department/${deptId}`);
+  }
 }

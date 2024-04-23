@@ -23,6 +23,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { DepartmentProfileComponent } from './department/department-profile/department-profile.component';
 import { DepartmentAddModalComponent } from './department/department-add-modal/department-add-modal.component';
 import { DepartmentEditModalComponent } from './department/department-edit-modal/department-edit-modal.component';
+import { DepartmentDeleteModalComponent } from './department/department-delete-modal/department-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DepartmentEditModalComponent } from './department/department-edit-modal
     ErrorComponent,
     DepartmentProfileComponent,
     DepartmentAddModalComponent,
-    DepartmentEditModalComponent
+    DepartmentEditModalComponent,
+    DepartmentDeleteModalComponent
   ],
   imports: [
     BrowserModule,
