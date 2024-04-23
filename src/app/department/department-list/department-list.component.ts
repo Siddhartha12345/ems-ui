@@ -13,6 +13,7 @@ export class DepartmentListComponent implements OnInit {
   departmentList: Department[];
   showModal: boolean = false;
   modalType: string;
+  departmentId: string;
   
   constructor(private departmentService: DepartmentService) {}
 
@@ -45,6 +46,9 @@ export class DepartmentListComponent implements OnInit {
   openFormModal(operationType: string, deptId?: string) {
     // display the modal
     this.showModal = true;
+    if(operationType != 'add') {
+      this.departmentId = deptId;
+    }
     this.modalType = operationType;
   }
 

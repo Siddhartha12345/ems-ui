@@ -1,0 +1,64 @@
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Add Department</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" (click)="onCancel()"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                    <!--Department ID kept as hidden as we don't want it to populate nor update-->
+                    <input type="text" class="form-control" id="floatingInput" formControlName="department" hidden>
+                    <!--Dept Name-->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" formControlName="departmentName" placeholder="Department Name">
+                        <label for="floatingInput">Department Name</label>
+                        <div *ngIf="(editFormControl['departmentName'].touched || submitted) && editFormControl['departmentName'].errors">
+                            <span class="text-danger" *ngIf="editFormControl['departmentName'].errors?.['required']">
+                                Please enter Department Name
+                            </span>
+                        </div>
+                    </div>
+                    <!--Dept head-->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" formControlName="departmentHead" placeholder="Department Head">
+                        <label for="floatingInput">Department Head</label>
+                        <div *ngIf="(editFormControl['departmentHead'].touched || submitted) && editFormControl['departmentHead'].errors">
+                            <span class="text-danger" *ngIf="editFormControl['departmentHead'].errors?.['required']">
+                                Please enter Department Head
+                            </span>
+                        </div>
+                    </div>
+                    <!--Department logo-->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" formControlName="departmentLogo" placeholder="Department Logo">
+                        <label for="floatingInput">Department Logo</label>
+                        <div *ngIf="(editFormControl['departmentLogo'].touched || submitted) && editFormControl['departmentLogo'].errors">
+                            <span class="text-danger" *ngIf="editFormControl['departmentLogo'].errors?.['required']">
+                                Please provide Department Logo
+                            </span>
+                        </div>
+                    </div>
+                    <!--Department info-->
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="departmentInfo" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Department Info</label>
+                        <div *ngIf="(editFormControl['departmentInfo'].touched || submitted) && editFormControl['departmentInfo'].errors">
+                            <span class="text-danger" *ngIf="editFormControl['departmentInfo'].errors?.['required']">
+                                Please provide Department Information
+                            </span>
+                            <span class="text-danger" *ngIf="editFormControl['departmentInfo'].errors?.['minlength'] || editFormControl['departmentInfo'].errors?.['maxlength']">
+                                Department Information should have minimum 8 to maximum 500 characters
+                            </span>
+                        </div>
+                    </div>
+                    <!--Add and Cancel buttons-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onCancel()">Cancel</button>
+                        <button type="submit" class="btn btn-info">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,7 +19,7 @@
                         <p class="mb-3 text-white"><i class="fa fa-user"></i> {{department.departmentHead}}</p>
                         <div class="list-inline contacts-social mt-3 mb-3"> 
                             <a [routerLink]="['/department', department.departmentId]" class="list-inline-item border-0"><i class="fa fa-eye"></i></a>
-                            <a href="javascript:;" class="list-inline-item border-0"><i class="fa fa-pencil"></i></a>
+                            <a (click)="openFormModal('edit', department.departmentId)" class="list-inline-item border-0"><i class="fa fa-pencil"></i></a>
                             <a href="javascript:;" class="list-inline-item border-0"><i class="fa fa-trash-o"></i></a>
                         </div>
                         <div class="d-grid"> <a href="#" class="btn btn-white radius-15">Assign Employee</a>
@@ -46,3 +46,8 @@
 <app-department-add-modal *ngIf="showModal == true && modalType == 'add'"
                             (modalEmitter)="modalEmit($event)">
 </app-department-add-modal>
+
+<app-department-edit-modal *ngIf="showModal == true && modalType == 'edit'"
+                            (modalEmitter)="modalEmit($event)"
+                            [departmentId]="departmentId">
+</app-department-edit-modal>

@@ -22,4 +22,8 @@ export class DepartmentService {
   addDepartment(department: Department): Observable<Department> {
     return this.http.post<Department>(`${AppConfig.API_GATEWAY_URL}${AppConfig.DEPT_CONTEXT_PATH}/department`, department);
   }
+
+  editDepartment(department: Department): Observable<Department> {
+    return this.http.put<Department>(`${AppConfig.API_GATEWAY_URL}${AppConfig.DEPT_CONTEXT_PATH}/department`, department);
+  }
 }
