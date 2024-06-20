@@ -5,8 +5,10 @@ import { EmployeeProfileComponent } from './employee/employee-profile/employee-p
 import { DepartmentListComponent } from './department/department-list/department-list.component';
 import { ErrorComponent } from './error/error.component';
 import { DepartmentProfileComponent } from './department/department-profile/department-profile.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   // specific to employee
   { path: 'employee', component: EmployeeListComponent },
   { path: 'employee/:id', component: EmployeeProfileComponent },

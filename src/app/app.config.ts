@@ -3,6 +3,7 @@ export class AppConfig {
     public static readonly API_GATEWAY_URL = 'http://localhost:8083';
     public static readonly EMP_CONTEXT_PATH = '/employee-svc/api/v1';
     public static readonly DEPT_CONTEXT_PATH = '/dept-svc/api/v1'
+    public static readonly AUTH_CONTEXT_PATH = '/user-svc/auth';
 
     // Validation constants - employee
     public static readonly EMP_EMAIL_REGEX = '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}';
