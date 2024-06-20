@@ -7,7 +7,7 @@ import {
   HttpErrorResponse,
   HttpResponse
 } from '@angular/common/http';
-import { Observable, catchError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Injectable()

@@ -24,6 +24,8 @@ import { DepartmentProfileComponent } from './department/department-profile/depa
 import { DepartmentAddModalComponent } from './department/department-add-modal/department-add-modal.component';
 import { DepartmentEditModalComponent } from './department/department-edit-modal/department-edit-modal.component';
 import { DepartmentDeleteModalComponent } from './department/department-delete-modal/department-delete-modal.component';
+import { LoginComponent } from './auth/login/login.component';
+import { MonitorInterceptor } from './interceptors/monitor.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { DepartmentDeleteModalComponent } from './department/department-delete-m
     DepartmentProfileComponent,
     DepartmentAddModalComponent,
     DepartmentEditModalComponent,
-    DepartmentDeleteModalComponent
+    DepartmentDeleteModalComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,17 +58,22 @@ import { DepartmentDeleteModalComponent } from './department/department-delete-m
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
+      useClass: HttpheaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
+      useClass: MonitorInterceptor,
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpheaderInterceptor,
+      useClass: LoaderInterceptor,
       multi: true
     }
   ],
