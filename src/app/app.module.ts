@@ -26,6 +26,7 @@ import { DepartmentEditModalComponent } from './department/department-edit-modal
 import { DepartmentDeleteModalComponent } from './department/department-delete-modal/department-delete-modal.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MonitorInterceptor } from './interceptors/monitor.interceptor';
+import { HomeComponent } from './info/home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MonitorInterceptor } from './interceptors/monitor.interceptor';
     DepartmentAddModalComponent,
     DepartmentEditModalComponent,
     DepartmentDeleteModalComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
